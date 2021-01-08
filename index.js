@@ -10,5 +10,3 @@ app.get('/nome', (req, res) => {
 });
 
 app.listen(4000);
-
-console.log(teste);
