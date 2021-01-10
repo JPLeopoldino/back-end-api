@@ -1,10 +1,15 @@
 const express = require('express');
+const { route } = require('.');
 const router = express.Router();
 const { Product } = require('../models');
 
 router.get('/', async (req, res, next)=>{
-    const products = await Product.findAll();
-    res.status(200).json(products);
+    const token = req.headers.authorization;
+    if(token=='ti-ara-2019'){
+        const products = await Product.findAll();
+        res.status(200).json(products);
+    }
+    res.status(401).send('Token não autorizado');
 });
 
 router.post('/', async (req, res, next)=>{
@@ -20,6 +25,17 @@ router.get('/:id', async (req, res, next)=>{
             }
         });
     res.status(200).json(...product);
+});
+
+router.get('/type/:productType', async (req, res, next)=>{
+    const products = await Product.findAll(
+        {
+            where:{
+                productType: req.params.productType
+            }
+        }
+    );
+    res.status(200).json(products);
 });
 
 router.delete('/:id', async (req, res, next)=>{
