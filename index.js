@@ -4,6 +4,7 @@ const app = express();
 
 const indexRouter = require('./routes/index');
 const clientsRouter = require('./routes/clients');
+const productsRouter = require('./routes/products');
 
 //CRUD - Create, Read, Update, Delete
 
@@ -11,6 +12,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRouter);
 app.use('/clients', clientsRouter);
+app.use('/products', productsRouter)
 
 
 app.listen(4000);

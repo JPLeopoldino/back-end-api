@@ -4,12 +4,12 @@ const { Client } = require('../models');
 
 router.post('/', async (req, res)=>{
     const client = await Client.create(req.body);
-    res.json(client);
+    res.status(201).json(client);
 });
 
 router.get('/', async (req, res)=>{
     const clients = await Client.findAll();
-    res.json(clients);
+    res.status(200).json(clients);
 });
 
 router.delete('/:id', async (req, res)=>{
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res)=>{
             }
         }
     );
-    res.json(...client);
+    res.status(200).json(...client);
 });
 
 module.exports = router;

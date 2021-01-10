@@ -26,7 +26,8 @@ module.exports = (sequelize, DataTypes) => {
     estado: DataTypes.STRING,
     observation: DataTypes.STRING,
     cupom: DataTypes.STRING,
-    cpf: DataTypes.STRING
+    cpf: DataTypes.STRING,
+    photo: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Client',
