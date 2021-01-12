@@ -19,7 +19,7 @@ app.use(function(req, res, next){
 
 app.use('/', indexRouter);
 app.use('/clients', clientsRouter);
-app.use('/products', productsRouter)
+app.use('/products', productsRouter);
 
 
 app.listen(4000);
