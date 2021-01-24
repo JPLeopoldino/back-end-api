@@ -38,6 +38,17 @@ router.get('/type/:productType', async (req, res, next)=>{
     res.status(200).json(products);
 });
 
+router.get('/name/:productName', async (req, res, next)=>{
+    const products = await Product.findAll(
+        {
+            where:{
+                productName: req.params.productName
+            }
+        }
+    );
+    res.status(200).json(products);
+});
+
 router.delete('/:id', async (req, res, next)=>{
     const product = await Product.destroy({
         where:{
